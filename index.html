@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模态窗口</title>
+	<link rel="stylesheet" href="index.css">
+</head>
+<body>
+	<div id="reset">
+            <div id="talk">issue<span id="close">&times;</span></div>
+            <div class="group"><label> name </label> <input type="text" id="username"></div>
+			<div class="group"><label>  Please enter content <br /></label><textarea id="content"></textarea></div>
+			<input type="submit" value="confirm" id="btn2">
+			<input type="submit" value="cancel" id="btn3">
+     </div>
+     	<br />
+     	<div id="box">
+     		<a id="btn">点击留言</a>
+     		<ul id="uls">
+     			<li>
+					<div class="username">喜剧之王</div>
+					<p>写得好,写得妙！</p>
+				</li>	
+     		</ul>
+     	</div>
+     	<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+     	<script src="index.js"></script>
+        
+        <script>
+        //锁定滚动条
+        function unScroll(){
+            var top=$(document).scrollTop();
+                $(document).on('scroll.unable',function (e){
+                $(document).scrollTop(top);
+            })
+        };
+        //打开滚动条
+        function removeUnScroll(){
+            $(document).unbind("scroll.unable");
+        };
+
+        $('btn').onclick = function () {
+            unScroll();
+        };
+        $('close').onclick = function () {
+            removeUnScroll();
+            Popup.show();
+        };
+        $('btn3').onclick = function () {
+            removeUnScroll();
+            Popup.show();
+        };
+        </script>
+</body>
+</html>
